@@ -1,0 +1,8 @@
+/*   * Made by Michael Weedmark and Perry Martin  * Darkheart  * Made for ICS4U  *   */ 
+ 
+using UnityEngine; using System.Collections; 
+ 
+public class ButtonSceneChange : MonoBehaviour { 
+ 
+public void goToLevel(string level) { Application.LoadLevel (level); } 
+} 
