@@ -1,0 +1,103 @@
+/*   * Made by Michael Weedmark and Perry Martin  * Darkheart  * Made for ICS4U  *   */ 
+ 
+using System.Collections; using System.Collections.Generic; using UnityEngine; using UnityEngine.UI; 
+ 
+public class battle : MonoBehaviour{ 
+ 
+public Text countPText; public Text countOText; public static int health = 100; public int enemyHealth = 10; 
+ 
+public Text countHText; public Text countKText; 
+ 
+int playerDamage;     int playerDefence; 
+ 
+ 
+int enemyDamage; int enemyDefence; 
+  
+int damagePTaken = 0; int damageETaken = 0; 
+  
+void Start () { playerDamage = Random.Range (1, 7); playerDefence = Random.Range (1, 7); 
+ 
+enemyDamage = Random.Range (1, 7); 
+enemyDefence =Random.Range (1, 7); 
+ 
+} 
+ 
+void Update () { 
+ 
+fightTextOne (); fightTextTwo (); 
+ 
+SetHealthText ();  enemytext (); 
+} 
+ 
+ 
+ 
+public void fightMath () { playerDamage = Random.Range (0, 7); playerDefence = Random.Range (0, 7); 
+ 
+enemyDamage = Random.Range (0, 7); enemyDefence =Random.Range (0, 7); 
+ 
+ 
+damageETaken = playerDamage - enemyDefence; damagePTaken = enemyDamage - playerDefence; 
+ 
+if (damageETaken < 0) { damageETaken = 0; } 
+ 
+if (damagePTaken < 0) { damagePTaken = 0; } 
+ 
+health = health - damagePTaken; enemyHealth = enemyHealth - damageETaken; 
+ 
+if (enemyHealth < 1)  { goToLevel ("EnemyKilled"); } 
+ 
+if (health < 1)  { goToLevel ("YouAreDead"); } 
+ 
+ 
+} 
+  
+void fightTextOne () { countHText.text = "You have taken: " + damagePTaken.ToString(); } 
+ 
+void fightTextTwo () { countKText.text = "The enemy has taken: "+ damageETaken.ToString(); } 
+ 
+void SetHealthText () { countPText.text = "Health: " + health.ToString (); } 
+ 
+void enemytext ()  { countOText.text = "Enemy Health: " + enemyHealth.ToString (); } 
+ 
+public void goToLevel(string level) { 
+ 
+Application.LoadLevel (level); 
+ 
+    } 
+ 
+public void heal () { 
+ 
+health = health + 10; 
+ 
+if (health > 100) { 
+ 
+health = 100; 
+
+ 
+} 
+ 
+} 
+ 
+public void healFailed() { 
+ 
+health = health - 10; 
+ 
+if (health < 1)  { goToLevel ("YouAreDead"); } 
+ 
+} 
+ 
+public void FleeFailed() { 
+ 
+health = health - 30; 
+ 
+if (health < 1)  { goToLevel ("YouAreDead"); } 
+} 
+ 
+public void resetHealth() { 
+ 
+health = 100; 
+ 
+} 
+ 
+ 
+}   
