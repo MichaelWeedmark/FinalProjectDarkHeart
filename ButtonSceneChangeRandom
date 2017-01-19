@@ -1,0 +1,16 @@
+/*   * Made by Michael Weedmark and Perry Martin  * Darkheart  * Made for ICS4U  *   */ 
+ 
+using UnityEngine; using System.Collections; 
+ 
+public class ButtonSceneChangeRandom : MonoBehaviour { 
+ 
+public void goToLevelRandom() { 
+ 
+string[] sceneArray= {"LockedDoorKicked", "LockedDoorKickedOff"}; 
+ 
+string sceneToRun= sceneArray[Random.Range(0,sceneArray.Length)]; 
+ 
+Application.LoadLevel(sceneToRun); 
+ 
+} 
+} 
