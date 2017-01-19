@@ -1,0 +1,23 @@
+ * Made by Michael Weedmark and Perry Martin  * Darkheart  * Made for ICS4U  *   */ 
+ 
+using System.Collections; using System.Collections.Generic; using UnityEngine; using UnityEngine.UI; 
+ 
+public class LevelCounter : MonoBehaviour { 
+ 
+public static int sceneCounter = 0; public Text displayRoom; // Use this for initialization void Start () { 
+ 
+sceneCounter = sceneCounter + 1; print (sceneCounter); roomCountDisplay(); 
+} 
+ 
+void roomCountDisplay () { 
+ 
+displayRoom.text = sceneCounter.ToString(); 
+ 
+} 
+ 
+public void resetCount () { 
+ 
+sceneCounter = 0; 
+ 
+} 
+} 
