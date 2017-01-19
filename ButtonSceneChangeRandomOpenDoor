@@ -1,0 +1,18 @@
+/*   * Made by Michael Weedmark and Perry Martin  * Darkheart  * Made for ICS4U  *   */ 
+ 
+using System.Collections; 
+using System.Collections.Generic; using UnityEngine; 
+ 
+public class ButtonSceneChangeRandomOpenDoor : MonoBehaviour { 
+ 
+public void OpenedDoor() { 
+ 
+string[] sceneArray= {"LockedDoor", "Battle", "BattleA", "BattleB", "BattleDemon", "BattleDemonA", "TrapDoor"}; 
+ 
+string sceneToRun= sceneArray[Random.Range(0,sceneArray.Length)]; 
+ 
+Application.LoadLevel(sceneToRun); 
+ 
+} 
+ 
+} 
