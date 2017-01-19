@@ -1,0 +1,12 @@
+/*   * Made by Michael Weedmark and Perry Martin  * Darkheart  * Made for ICS4U  *   */ 
+ 
+using System.Collections; using System.Collections.Generic; using UnityEngine; 
+ 
+public class Wait : MonoBehaviour { 
+ 
+public float delay = 3; 
+ 
+void Start() { StartCoroutine(LoadLevelAfterDelay(delay));  } 
+ 
+IEnumerator LoadLevelAfterDelay(float delay) { yield return new WaitForSeconds(delay); Application.LoadLevel("MainMenu"); } 
+  } 
